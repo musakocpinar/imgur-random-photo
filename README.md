@@ -1,11 +1,11 @@
 # imgur-random-photo
 
-'with_api':
-- Faster
-- No need extension
-- Limited
-
-'without_api':
-- Slower
-- Need extension
+# USAGE
+### Imgur class with extension:
 - Unlimited
+- Slower
+
+### Imgur class without extension
+- Limited
+- Faster
+- Finds more results (because it doesn't use extension)
