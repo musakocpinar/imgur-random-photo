@@ -1,4 +1,4 @@
-from main import *
+from with_api import *
 
 random_link = generate_random_link()
 valid, imgur_link = is_valid(random_link)
