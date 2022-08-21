@@ -24,6 +24,9 @@ class Imgur():
     def is_valid(self, link):
         resp = requests.get(link)
 
+        if resp.status_code != 200:
+            return False, None
+
         if self.with_api:
             resp_json = resp.json()
 
