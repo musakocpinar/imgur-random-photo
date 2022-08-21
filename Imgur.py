@@ -42,11 +42,12 @@ class Imgur():
             else:
                 return True, link
 
-    def open_in_browser(self, link):
-        webbrowser.get(chrome_path).open(link)
+
+def open_in_browser(link):
+    webbrowser.get(chrome_path).open(link)
 
 
-    def write_to_file(self, link, path='links.txt'):
-        f = open(path, "a")
-        f.write(link + "\n")
-        f.close()
+def write_to_file(link, path='links.txt'):
+    f = open(path, "a")
+    f.write(link + "\n")
+    f.close()
