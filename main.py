@@ -3,6 +3,7 @@ import string
 import requests
 import webbrowser
 
+chrome_path = '/usr/bin/google-chrome %s'
 url = "https://i.imgur.com/{}.{}"
 
 
@@ -20,9 +21,6 @@ def is_valid(link):
         return False
     else:
         return True
-
-
-chrome_path = '/usr/bin/google-chrome %s'
 
 
 def open_in_browser(link):
