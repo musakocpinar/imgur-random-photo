@@ -23,12 +23,11 @@ class Imgur():
 
     def is_valid(self, link):
         resp = requests.get(link)
-
-        if resp.status_code != 200:
-            return False, None
-
         if self.with_api:
             resp_json = resp.json()
+
+            if 'success' in resp_json and not bool(resp_json['success']):
+                raise Exception("Not handled error: {}".format(resp_json))
 
             if 'errors' in resp_json:
                 if '404' not in resp_json['errors'][0]['code']:
@@ -37,6 +36,9 @@ class Imgur():
             else:
                 return True, resp_json['media'][0]['url']
         else:
+            if resp.status_code != 200:
+                return False, None
+
             if resp.url.endswith("https://i.imgur.com/removed.png"):
                 return False, None
             else:
